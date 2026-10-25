@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeepPartial, Repository } from 'typeorm';
 import { Report } from '../entities/report.entity';
-import { CreateReportDto } from '../dto/create-report.dto';
 
 @Injectable()
 export class ReportsRepository {
@@ -11,8 +10,8 @@ export class ReportsRepository {
     private readonly repository: Repository<Report>,
   ) {}
 
-  create(dto: CreateReportDto): Report {
-    return this.repository.create(dto);
+  create(data: DeepPartial<Report>): Report {
+    return this.repository.create(data);
   }
 
   async save(report: Report): Promise<Report> {

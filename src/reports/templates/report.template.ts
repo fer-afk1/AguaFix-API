@@ -16,7 +16,7 @@ const SEVERITY_COLORS: Record<string, string> = {
  * Genera el HTML del correo de aviso de una fuga de agua reportada
  * por un ciudadano, para ser enviado a la cuadrilla de mantenimiento.
  */
-export function generateReportTemplate(dto: CreateReportDto): string {
+export function generateReportTemplate(dto: CreateReportDto, photoUrl: string): string {
   const severityLabel = SEVERITY_LABELS[dto.severity] ?? dto.severity;
   const severityColor = SEVERITY_COLORS[dto.severity] ?? '#333333';
   const fecha = new Date().toLocaleString('es-MX', {
@@ -91,6 +91,9 @@ export function generateReportTemplate(dto: CreateReportDto): string {
                     </td>
                   </tr>
                 </table>
+                <p style="font-size:13px; font-weight:bold; color:#555555; margin:20px 0 8px;">Foto de la fuga
+                </p>
+                <img src="${photoUrl}" alt="Foto de la fuga reportada" width="552" style="display:block; width:100%; max-width:552px; height:auto; border-radius:6px; border:1px solid #e0e0e0;" />
                 <p style="font-size:12px; color:#888888; margin-top:20px;">
                   Favor de atender el reporte y actualizar su estatus una vez resuelto.
                 </p>

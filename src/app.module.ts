@@ -19,6 +19,8 @@ import { EmailModule } from './email/email.module';
       database: envs.dbName,
       entities: [Report, User],
       synchronize: false,
+      migrations: [__dirname + '/database/migrations/*{.ts,.js}'],
+      migrationsRun: true,
     }),
     ReportsModule,
     UsersModule,

@@ -21,4 +21,8 @@ export const envs = {
 
   // Cuadrilla de mantenimiento
   maintenanceCrewEmail: env.get('MAINTENANCE_CREW_EMAIL').required().asString(),
+  awsRegion: env.get('AWS_REGION').required().asString(),
+  awsAccessKeyId: env.get('AWS_ACCESS_KEY_ID').required().asString(),
+  awsSecretAccessKey: env.get('AWS_SECRET_ACCESS_KEY').required().asString(),
+  awsS3Bucket: env.get('AWS_S3_BUCKET').required().asString(),
 };
